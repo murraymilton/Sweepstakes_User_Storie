@@ -1,0 +1,2 @@
+class MarketingFirm:
+    pass
