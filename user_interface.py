@@ -1,9 +1,9 @@
+
 class UserInterface:
-    pass
 
     @staticmethod
     def display_message(message):
-
+        print(f"Welcome")
         print(message)
 
 
@@ -18,3 +18,4 @@ class UserInterface:
 
         user_input = int(input(prompt))
         return user_input
+        pass
