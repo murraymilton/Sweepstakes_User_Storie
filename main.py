@@ -1,4 +1,4 @@
 from user_interface import UserInterface
 
-user_interface = UserInterface
-user_interface.display_message()
+
+UserInterface.display_message("Welcome to Sweeps-N-Stakes! A marketing firm offering the best in Sweepstakes.\nPress -1- for Marketing Menu \nPress -2- to show available sweepstakes")
