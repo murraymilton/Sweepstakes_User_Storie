@@ -9,25 +9,21 @@ class Marketing_Firm:
         self.sweepstakes_inventory = []
 
     def select_sweepstakes(self):
-        selected_sweepstakes = user_interface.get_user_input_number()
+        selected_sweepstakes = UserInterface.get_user_input_string("Select your sweepstakes")
         return selected_sweepstakes
 
     def create_sweepstakes(self):
-        sweepstakes = Sweepstakes()
-        self.sweepstakes_inventory.append(user_interface.get_user_input_string())
+        self.sweepstakes_inventory.append(UserInterface.get_user_input_string("Enter the sweepstakes name"))
 
-
-    @staticmethod
-    def change_marketing_firm_name():
-        change_marketing_firm = user_interface.get_user_input_string()
-        select_new_marketing_firm = change_marketing_firm
-        return select_new_marketing_firm
-
-
+    def change_marketing_firm_name(self):
+        self.marketing_firm_name = UserInterface.get_user_input_string("Enter your firm name")
 
     def menu(self):
         user_selection = UserInterface.get_user_input_number("Please enter your selection")
-        pass
-        self.create_sweepstakes()
-        self.change_marketing_firm_name()
-        self.select_sweepstakes()
+        if user_selection == 1:
+            return self.create_sweepstakes()
+        elif user_selection == 2:
+            return self.change_marketing_firm_name()
+        elif user_selection == 3:
+            print(self.sweepstakes_inventory)
+            return self.select_sweepstakes()

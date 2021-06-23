@@ -28,7 +28,9 @@ class Sweepstakes:
 
     def menu(self):
         user_selection = UserInterface.get_user_input_number("Please make a selection:")
-        self.register_contestant()
-        self.view_contestants()
-        self.announce_winner()
-        pass
+        if user_selection == 1:
+            self.register_contestant()
+        elif user_selection == 2:
+            self.view_contestants()
+        elif user_selection == 3:
+            self.pick_winner()
