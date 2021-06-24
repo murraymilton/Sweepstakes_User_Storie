@@ -13,10 +13,7 @@ class Sweepstakes:
     contestant = Contestant()
 
     def register_contestant(self, contestant):
-        contestant.contestant_first_name = UserInterface.get_user_input_string("Please enter first name.")
-        contestant.contestant_last_name = UserInterface.get_user_input_string("Please enter last name.")
-        contestant.contestant_email = UserInterface.get_user_input_string("Please enter email address.")
-        self.contestants.update(self.get_registration_number(contestant))
+        self.contestants.append(contestant)
 
     def get_registration_number(self, contestant):
         contestant.contestant_registration_number = 0000
@@ -24,9 +21,13 @@ class Sweepstakes:
             contestant.contestant_registration_number += 1
 
     def pick_winner(self):
-        winner_announced = random.randint(self.contestants)
+        winner_choice_random = random.randint(0, len(self.contestants) -1)
+        for index in range(0, len(self.contestants)):
+            if index == winner_choice_random:
+                self.contestants[index].key['contestant_wins'] = True
+        for the_contestants in self.contestants:
+            the_contestants.notify_winner(the_contestants)
         Contestant.notify_winner()
-        return winner_announced
 
     def view_contestants(self):
         return UserInterface.display_contestant_info()

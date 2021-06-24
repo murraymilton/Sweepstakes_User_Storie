@@ -9,10 +9,12 @@ class MarketingFirm:
         self.sweepstakes_inventory = []
 
     def change_marketing_firm_name(self):
-        self.marketing_firm_name = UserInterface.get_user_input_string("Enter your firm name")
+        self.marketing_firm_name = UserInterface.get_user_input_string("Please enter the name of your firm:")
 
     def create_sweepstakes(self):
-        self.sweepstakes_inventory.append(UserInterface.get_user_input_string("Enter the sweepstakes name"))
+        created_sweepstakes = UserInterface.get_user_input_string("\n Enter the name of your sweepstakes:")
+        new_created_sweepstakes = Sweepstakes(created_sweepstakes, list())
+        self.sweepstakes_inventory.append(new_created_sweepstakes)
 
     def select_sweepstakes(self):
         selected_sweepstakes = UserInterface.get_user_input_string("Select your sweepstakes")
