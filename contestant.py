@@ -1,24 +1,21 @@
 class Contestant:
 
-    def __init__(self, first_name, last_name, email_address, registration_number):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.email_address = email_address
-        self.registration_number = registration_number
-        self.contestant_info = ()
-
-    # def display_contestant_entry_status(self):
-    #     print(f'{self.first_name} {self.last_name}\n Email: {self.email}'
-    #           f'Address: \n{self.address} \nRegistration Number:{self.registration_number}')
-    #     for contestant in self.contestant_info:
-    #         contestant.display_contestant_entry_status()
-
-    def add_contestant(self, contestant):
-        self.contestant_info.append(contestant)
+    def __init__(self, first_name, last_name, email, registration_number):
+        self.key = {
+             "contestant_first_name": first_name,
+             "contestant_last_name": last_name,
+             "contestant_email_address": email,
+             "contestant_registration_number": registration_number,
+             "contestant_wins": False
+        }
 
     def notify_winner(self, winner_announced):
-        winner_announced = False
-        if winner_announced:
-            pass
+        if winner_announced['contestant_wins']:
+            print(f"\n\t\t{winner_announced.key['contestant_first_name']} {winner_announced['contestant_last_name']}!\n"
+                  f"\tCongratulations! You are the lucky winner!")
         else:
-            pass
+            print(f"\n\t\t{winner_announced.key['contestant_first_name']} {winner_announced['contestant_last_name']}\n"
+                  f"Unfortunately you were not the winner.")
+
+
+# Create the observer design for event notification using a k value dictionary?

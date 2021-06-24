@@ -1,5 +1,6 @@
 import random
 from contestant import Contestant
+from marketing_firm import MarketingFirm
 from user_interface import UserInterface
 
 
@@ -8,9 +9,13 @@ class Sweepstakes:
     def __init__(self, name):
         self.sweepstakes_name = name
         self.contestants = {}
-        contestant = Contestant()
+
+    contestant = Contestant()
 
     def register_contestant(self, contestant):
+        contestant.contestant_first_name = UserInterface.get_user_input_string("Please enter first name.")
+        contestant.contestant_last_name = UserInterface.get_user_input_string("Please enter last name.")
+        contestant.contestant_email = UserInterface.get_user_input_string("Please enter email address.")
         self.contestants.update(self.get_registration_number(contestant))
 
     def get_registration_number(self, contestant):
@@ -27,7 +32,8 @@ class Sweepstakes:
         return UserInterface.display_contestant_info()
 
     def menu(self):
-        user_selection = UserInterface.get_user_input_number("Please make a selection:")
+        UserInterface.display_sweepstakes_menu_options(MarketingFirm.select_sweepstakes(self))
+        user_selection = UserInterface.get_user_input_number("Please make a selection.")
         if user_selection == 1:
             self.register_contestant()
         elif user_selection == 2:
